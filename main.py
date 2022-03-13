@@ -48,7 +48,7 @@ def main():
 
     dp.add_error_handler(error)
 
-    PORT = int(os.environ.get('PORT', '443'))
+    PORT = int(os.environ.get('PORT', '5000'))
     TOKEN = os.getenv('BOTAPIKEY')
     HOOK_URL = 'URL' + '/' + TOKEN
     updater.start_webhook(listen='0.0.0.0', port=PORT, url_path=TOKEN, webhook_url=HOOK_URL)
