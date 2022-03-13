@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 # Qualche comando
 def start(update, context):
-    update.message.reply_text('Hi!')
+    update.message.reply_text('Hi! Type / to list commands')
 
 
 # Fornisce l'id della chat
@@ -21,9 +21,17 @@ def chatinfo(update, context):
 
 
 # Invia il logo di Telegram
-def image(update, context):
-    context.bot.send_photo(chat_id=update.effective_chat.id, photo='https://telegram.org/img/t_logo.png')
+def unexpected(update, context):
+    context.bot.send_photo(chat_id=update.effective_chat.id,
+                           photo='https://static.wikia.nocookie.net/montypython/images/f/ff/Spanish_Inquisition.jpg/revision/latest?cb=20180629171423')
 
+def show(update, context):
+    context.bot.sendAnimation(chat_id=update.effective_chat.id,
+                           animation='https://c.tenor.com/VFFJ8Ei3C2IAAAAM/rickroll-rick.gif')
+
+
+def ni(update, context):
+    update.message.reply_text("it is a good shrubbery")
 
 # Ripete quello che dici
 def echo(update, context):
@@ -42,7 +50,7 @@ def main():
 
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("chatinfo", chatinfo))
-    dp.add_handler(CommandHandler("image", image))
+    dp.add_handler(CommandHandler("unexpected", unexpected))
 
     dp.add_handler(MessageHandler(Filters.text, echo))
 
