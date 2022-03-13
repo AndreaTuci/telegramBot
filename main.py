@@ -51,6 +51,8 @@ def main():
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("chatinfo", chatinfo))
     dp.add_handler(CommandHandler("unexpected", unexpected))
+    dp.add_handler(CommandHandler("show", show))
+    dp.add_handler(CommandHandler("ni", ni))
 
     dp.add_handler(MessageHandler(Filters.text, echo))
 
