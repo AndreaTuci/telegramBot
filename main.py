@@ -48,12 +48,13 @@ def main():
 
     dp.add_error_handler(error)
 
-    PORT = int(os.environ.get('PORT', 8443))
+    PORT = int(os.environ.get('PORT', '8443'))
     TOKEN = os.getenv('BOTAPIKEY')
-    updater.start_webhook(listen='0.0.0.0',
+    updater = Updater(TOKEN)
+    updater.start_webhook(listen="0.0.0.0",
                           port=PORT,
-                          url_path=TOKEN)
-    updater.bot.setWebhook('https://tuci-telegram-bot.herokuapp.com/' + TOKEN)
+                          url_path=TOKEN,
+                          webhook_url="https://tuci-telegram-bot.herokuapp.com/" + TOKEN)
 
     updater.idle()
 
